@@ -139,16 +139,7 @@ end_section
 # =================== GIT TOOLS ===================
 section "Cloning Recon Repositories"
 REPOS=(
-  "https://github.com/nahamsec/JSParser.git"
   "https://github.com/aboul3la/Sublist3r.git"
-  "https://github.com/tomdev/teh_s3_bucketeers.git"
-  "https://github.com/wpscanteam/wpscan.git"
-  "https://github.com/nahamsec/lazys3.git"
-  "https://github.com/jobertabma/virtual-host-discovery.git"
-  "https://github.com/sqlmapproject/sqlmap.git sqlmap-dev"
-  "https://github.com/guelfoweb/knock.git"
-  "https://github.com/nahamsec/lazyrecon.git"
-  "https://github.com/nahamsec/crtndstry.git"
 )
 
 for repo in "${REPOS[@]}"; do
