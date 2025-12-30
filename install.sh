@@ -65,7 +65,7 @@ run sudo apt-get install -y \
   build-essential libgmp-dev zlib1g-dev \
   libffi-dev python3-dev python3-setuptools \
   python3-dnspython libldns-dev python3-pip \
-  git rename xargs
+  git rename findutils
 ok "Base packages installed"
 end_section
 
