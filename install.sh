@@ -69,31 +69,6 @@ run sudo apt-get install -y \
 ok "Base packages installed"
 end_section
 
-# =================== RECON PROFILE ===================
-section "Recon Bash Profile"
-
-RECON_DIR="$HOME/recon_profile"
-
-if [[ -d "$RECON_DIR/.git" ]]; then
-  info "Recon profile already exists, updating"
-  cd "$RECON_DIR" || error "Cannot access recon_profile"
-  run git pull
-else
-  info "Cloning recon profile"
-  run git clone https://github.com/nahamsec/recon_profile.git "$RECON_DIR"
-fi
-
-grep -qxF "# recon_profile" ~/.profile || {
-  echo -e "\n# recon_profile" >> ~/.profile
-  cat "$RECON_DIR/bash_profile" >> ~/.profile
-}
-
-source ~/.profile
-ok "Recon profile ready"
-
-end_section
-
-
 # =================== GO INSTALL ===================
 section "Golang Setup"
 if ! command -v go &>/dev/null; then
