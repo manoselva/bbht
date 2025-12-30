@@ -71,15 +71,28 @@ end_section
 
 # =================== RECON PROFILE ===================
 section "Recon Bash Profile"
-if [[ ! -d "$HOME/recon_profile" ]]; then
-  run git clone https://github.com/nahamsec/recon_profile.git
-  cat recon_profile/bash_profile >> ~/.profile
-  source ~/.profile
-  ok "Recon profile installed"
+
+RECON_DIR="$HOME/recon_profile"
+
+if [[ -d "$RECON_DIR/.git" ]]; then
+  info "Recon profile already exists, updating"
+  cd "$RECON_DIR" || error "Cannot access recon_profile"
+  run git pull
 else
-  ok "Recon profile already present"
+  info "Cloning recon profile"
+  run git clone https://github.com/nahamsec/recon_profile.git "$RECON_DIR"
 fi
+
+grep -qxF "# recon_profile" ~/.profile || {
+  echo -e "\n# recon_profile" >> ~/.profile
+  cat "$RECON_DIR/bash_profile" >> ~/.profile
+}
+
+source ~/.profile
+ok "Recon profile ready"
+
 end_section
+
 
 # =================== GO INSTALL ===================
 section "Golang Setup"
