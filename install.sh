@@ -110,7 +110,7 @@ TOOLS=(
   "github.com/projectdiscovery/katana/cmd/katana@latest"
   "github.com/projectdiscovery/naabu/v2/cmd/naabu@latest"
   "github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
-  "github.com/michenriksen/aquatone@latest"
+  "github.com/sensepost/gowitness@latest"
   "github.com/tomnomnom/httprobe@latest"
   "github.com/tomnomnom/unfurl@latest"
   "github.com/tomnomnom/waybackurls@latest"
